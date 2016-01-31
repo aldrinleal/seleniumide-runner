@@ -277,6 +277,8 @@ public class StatementGenerator {
     } else if (matchesAny(param1, "refreshAndWait")) {
       sb.append("selenium.refresh();");
       sb.append("selenium.waitForPageToLoad(\"30000\");");
+    } else if (matchesAny(param1, "storeLocation")) {
+      sb.append(SETVALUE_REF).append("(\"").append(param2).append("\", selenium.getLocation());");
     } else if (matchesAny(param1, "store")) {
       sb.append("boolean ");
       sb.append(param3);
